@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Репин</title>
+<meta charset="utf-8">
+</head>
+<h1>Ответ:</h1>
+<body>
+<script type="text/javascript">
+var n = Number(prompt("Введите количество (n):"));
+var x = Number(prompt("Введите число x:"));
+var b = 0;
+var c = 0;
+var cfac=0;
+if (n==1) {
+b=1;
+}
+else{
+for(var a=0; a<=n; a++){
+c=a*2;
+if (c!=0) {
+cfac = 1;
+for (var i=1; i<=c; i++) {
+cfac=i*cfac;
+}
+}
+else{
+cfac=1;
+}
+
+b=b+((((-1)**a)*(x**(2*a)))/(cfac));
+}
+}
+
+document.writeln(b);
+</script>
+</body>
+</html>
