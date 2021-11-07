@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Репин Кирилл</title>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+                function func(){
+var x = Number (document.forms["frm"].elements["varx"].value);
+var n = Number (document.forms["frm"].elements["varn"].value);
+var b = 0;
+var c = 0;
+var cfac=0;
+if (n==1) {
+    b=1;
+}
+else{
+    for(var a=0; a<=n; a++){
+        c=a*2;
+        if (c!=0) {
+            cfac = 1;
+            for (var i=1; i<=c; i++) {
+                cfac=i*cfac;
+            }
+        }
+else{
+    cfac=1;
+}
+b=b+((((-1)**a)*(x**(2*a)))/(cfac));
+}
+b=1+b;
+}
+document.writeln(b);
+}
+
+</script>
+</head>
+<body>
+    <form id="frm">
+        <p>Введите число x:</p>
+        <input type="text" name="varx" id="x">
+        <p>Введите число n:</p>
+        <input type="text" name="varn" id="n">
+        <input type="submit" value="OK" onclick="func()">
+    </form>
+</body>
+</html>
