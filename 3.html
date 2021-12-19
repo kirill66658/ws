@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<input type="text" id="mas">
+<button onclick="OneSumbit()">Посчитать массив</button>
+
+<script>
+function OneSumbit(){
+// Алгоритм превращения массив из строки цифр в массив цифр 
+var masStr = document.getElementById("mas").value; // получение из формы
+var mas = [];
+var counterMasStr = "";
+for(var i = 0; i < masStr.length; i++){ // Разделяю элементы на разные строки
+	if(masStr[i] == " ") {mas.push(counterMasStr); counterMasStr = ""; continue;}
+	counterMasStr += masStr[i];
+}
+mas.push(counterMasStr)
+masStr = 0;
+// Строки в цифры
+for(var i = 0; i < mas.length; i++){
+	mas[i] = Number(mas[i]);
+}
+
+//сколько 0 в массиве
+var counter = 0;
+for(var i = 0; i < mas.length; i++){
+	if(mas[i] == 0) counter++;
+}
+alert("В массиве присутствует столько нулей - " + counter);
+// Сумма элементов после самого минимального числа
+var min = 0;
+for(var i = 0; i < mas.length; i++){ // Нахождение минимального числа
+	if(min > mas[i]) min = mas[i];
+}
+min = mas.indexOf(min) + 1; // получаю индекс этого элемента. +1 Потому что нам нужно только найти самый минимальный элемент, но включать в сумму последующих не нужно
+var sum = 0;
+for(var i = min; i < mas.length; i++) sum += mas[i]; // Суммирование
+	alert("Сумма, после минимального элемента " + sum);
+// Модулирование и сложение элементов
+sum = 0;
+for(var i = 0; i < mas.length; i++){
+if(mas[i] < 0) mas[i] *= -1; // Если число отрицательное, то делаем его положительным
+sum += mas[i];
+}
+alert("Сумма всех модулей элементов " + sum);
+}
+</script>
+</body>
+</html>
